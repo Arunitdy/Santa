@@ -15,5 +15,7 @@ The app has three core sections:
 2.santa's To-Do List : A dynamic activity tracker to help Santa (and users) organize tasks, mark them as done, and ensure all activities are accounted for, promoting productivity in a festive manner. 
  
 3. delivery tracker : A robust system that visualizes the status of deliveries with categories like "To Be Delivered," "On the Way," and "Delivered," ensuring a smooth and transparent tracking process.
+4.Santa Surprise Game: A two-player interactive game where players compete to uncover hidden Santa cards from a shared set. The first player to find three Santa cards wins. This feature combines memory and luck, creating a fun and engaging way to connect with friends during the holiday season.
+
 
 This application not only gives emotional support to those separated from their families but also introduces a fun, interesting way of managing holiday tasks and deliveries. By integrating the latest AI technology with practical tools, the app delivers a comprehensive solution for making sure no one is left out during the Christmas season.
