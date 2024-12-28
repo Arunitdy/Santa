@@ -10,7 +10,7 @@
         }
 
         body {
-            background: #f0f2f5;
+            background: #f80000;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
@@ -277,7 +277,9 @@
                 snowflake.remove();
             }, 5000);
         }
-
+        
+       
+        setInterval(createSnowflake, 300);
         document.getElementById('taskInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 addTask();
@@ -287,8 +289,6 @@
        
         updateTaskList();
         
-       
-        setInterval(createSnowflake, 300);
     </script>
 </body>
 </html>

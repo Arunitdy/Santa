@@ -11,5 +11,6 @@ function createSnowflake() {
         snowflake.remove();
     }, 5000);
 }
-       
+
+
 setInterval(createSnowflake, 300);

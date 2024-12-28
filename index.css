@@ -22,13 +22,10 @@ body {
     animation: snowfall linear infinite;
 }
 
-.sand-timer {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 100px;
-    height: 160px;
-    z-index: 1000;
+.santa{
+    position: absolute;
+    margin-right:80% ;
+    margin-top:3%;
 }
 
 .hourglass {
@@ -138,6 +135,22 @@ body {
     box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
 }
 
+.snow {
+    color: white;
+    font-size: 20px;
+    position: fixed;
+    top: -20px;
+    animation: fall linear forwards;
+    text-shadow: 0 0 5px rgba(0,0,0,0.3);
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
