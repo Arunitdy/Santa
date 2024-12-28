@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Secret Santa Task Manager</title>
+    <title>Santa's Toy Factory Pipeline</title>
     <style>
         * {
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background: #f80303;
-            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f50707;
             padding: 20px;
-            min-height: 100vh;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -27,105 +27,103 @@
 
         h1 {
             text-align: center;
-            color: #d42426;
-            margin-bottom: 20px;
+            color: #c41e3a;
+            margin-bottom: 30px;
         }
 
-        .input-group {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-        input[type="text"] {
-            flex: 1;
-            padding: 10px;
-            border: 2px solid #e0e0e0;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        button {
-            background: #d42426;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: #b01e20;
-        }
-
-        .task-list {
-            margin-top: 20px;
-        }
-
-        .task-item {
-            background: #f8f9fa;
+        .pipeline-stage {
             padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: transform 0.2s;
+            gap: 15px;
         }
 
-        .task-item:hover {
-            transform: translateX(5px);
-        }
-
-        .task-item.completed {
-            background: #e8f5e9;
-            text-decoration: line-through;
-            color: #666;
-        }
-
-        .checkbox {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #d42426;
-            border-radius: 3px;
-            cursor: pointer;
+        .icon {
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            background-color: #f8f8f8;
+            border-radius: 50%;
         }
 
-        .checkbox.checked {
-            background: #d42426;
+        .stage-content {
+            flex-grow: 1;
         }
 
-        .delete-btn {
-            margin-left: auto;
-            background: #ff4444;
-            padding: 5px 10px;
+        .stage-title {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .task-text {
-            flex: 1;
-        }
-
-        .counter {
-            text-align: center;
+        .stage-description {
+            font-size: 0.9em;
             color: #666;
-            margin-top: 20px;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .pipeline-stage.active {
+            border-color: #c41e3a;
+            background-color: #fff5f5;
+        }
+
+        .pipeline-stage.complete {
+            border-color: #2ecc71;
+            background-color: #f0fff4;
+        }
+
+        .active .status-badge {
+            background-color: #ffebee;
+            color: #c41e3a;
+        }
+
+        .complete .status-badge {
+            background-color: #e8f5e9;
+            color: #2ecc71;
+        }
+
+        .waiting .status-badge {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #c41e3a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a01830;
         }
 
         .snow {
-            color: white;
-            font-size: 20px;
             position: fixed;
-            top: -20px;
-            animation: fall linear forwards;
-            text-shadow: 0 0 5px rgba(0,0,0,0.3);
-            z-index: 1;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
             pointer-events: none;
+            animation: fall linear forwards;
         }
 
         @keyframes fall {
@@ -133,162 +131,87 @@
                 transform: translateY(100vh);
             }
         }
-
-        .empty-state {
-            text-align: center;
-            color: #666;
-            padding: 20px;
-            font-style: italic;
-        }
-
-        .filters {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            background: #f0f0f0;
-            color: #333;
-            border: none;
-            padding: 5px 15px;
-            border-radius: 15px;
-            cursor: pointer;
-        }
-
-        .filter-btn.active {
-            background: #d42426;
-            color: white;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎅 Secret Santa Task Manager</h1>
-        
-        <div class="input-group">
-            <input type="text" id="taskInput" placeholder="Add a new task... (e.g., Buy gift for John)">
-            <button onclick="addTask()">Add Task</button>
+        <h1>🎅 Santa's Toy Factory Pipeline</h1>
+        <div id="pipeline">
+            <!-- Stages will be inserted here by JavaScript -->
         </div>
-
-        <div class="filters">
-            <button class="filter-btn active" onclick="filterTasks('all')">All Tasks</button>
-            <button class="filter-btn" onclick="filterTasks('active')">Active</button>
-            <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
-        </div>
-
-        <div id="taskList" class="task-list">
-          
-        </div>
-
-        <div id="counter" class="counter">
-          
-        </div>
+        <button onclick="advancePipeline()">Advance Pipeline</button>
     </div>
 
     <script>
-        let tasks = [];
-        let currentFilter = 'all';
-
-        function addTask() {
-            const input = document.getElementById('taskInput');
-            const text = input.value.trim();
-            
-            if (text) {
-                tasks.push({
-                    id: Date.now(),
-                    text: text,
-                    completed: false
-                });
-                input.value = '';
-                updateTaskList();
-                createSnowflake();
+        const stages = [
+            {
+                title: "Wish Letters Processing",
+                icon: "📨",
+                description: "Reading and sorting children's wishes"
+            },
+            {
+                title: "Toy Production",
+                icon: "🧸",
+                description: "Creating magical toys in Santa's workshop"
+            },
+            {
+                title: "Quality Control",
+                icon: "✔️",
+                description: "Ensuring every toy meets North Pole standards"
+            },
+            {
+                title: "Gift Wrapping",
+                icon: "🎁",
+                description: "Making presents look magical"
+            },
+            {
+                title: "Delivery Planning",
+                icon: "🛷",
+                description: "Optimizing Santa's route for Christmas Eve"
             }
-        }
+        ];
 
-        function toggleTask(id) {
-            tasks = tasks.map(task => 
-                task.id === id ? {...task, completed: !task.completed} : task
-            );
-            updateTaskList();
-        }
+        let currentStage = 0;
 
-        function deleteTask(id) {
-            tasks = tasks.filter(task => task.id !== id);
-            updateTaskList();
-        }
-
-        function filterTasks(filter) {
-            currentFilter = filter;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            updateTaskList();
-        }
-
-        function updateTaskList() {
-            const taskList = document.getElementById('taskList');
-            const filteredTasks = tasks.filter(task => {
-                if (currentFilter === 'active') return !task.completed;
-                if (currentFilter === 'completed') return task.completed;
-                return true;
-            });
-
-            if (filteredTasks.length === 0) {
-                taskList.innerHTML = `
-                    <div class="empty-state">
-                        No tasks yet! Add some holiday tasks to get started 🎄
+        function createPipelineHTML() {
+            const pipelineContainer = document.getElementById('pipeline');
+            pipelineContainer.innerHTML = stages.map((stage, index) => `
+                <div class="pipeline-stage ${index === currentStage ? 'active' : index < currentStage ? 'complete' : 'waiting'}">
+                    <div class="icon">${stage.icon}</div>
+                    <div class="stage-content">
+                        <div class="stage-title">${stage.title}</div>
+                        <div class="stage-description">${stage.description}</div>
                     </div>
-                `;
-            } else {
-                taskList.innerHTML = filteredTasks.map(task => `
-                    <div class="task-item ${task.completed ? 'completed' : ''}">
-                        <div class="checkbox ${task.completed ? 'checked' : ''}" 
-                             onclick="toggleTask(${task.id})">
-                            ${task.completed ? '✓' : ''}
-                        </div>
-                        <div class="task-text">${task.text}</div>
-                        <button class="delete-btn" onclick="deleteTask(${task.id})">❌</button>
-                    </div>
-                `).join('');
-            }
-
-            updateCounter();
+                    <span class="status-badge">
+                        ${index === currentStage ? 'Active' : index < currentStage ? 'Complete' : 'Waiting'}
+                    </span>
+                </div>
+            `).join('');
         }
 
-        function updateCounter() {
-            const total = tasks.length;
-            const completed = tasks.filter(task => task.completed).length;
-            document.getElementById('counter').textContent = 
-                `Completed ${completed} of ${total} tasks`;
+        function advancePipeline() {
+            currentStage = (currentStage + 1) % stages.length;
+            createPipelineHTML();
         }
 
+        // Create snow effect
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snow');
             snowflake.style.left = Math.random() * 100 + 'vw';
             snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-            snowflake.innerHTML = '❄';
             document.body.appendChild(snowflake);
             
             setTimeout(() => {
                 snowflake.remove();
             }, 5000);
         }
-               
-        setInterval(createSnowflake, 300);
-        document.getElementById('taskInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                addTask();
-            }
-        });
 
-       
-        updateTaskList();
-        
+        // Initialize pipeline
+        createPipelineHTML();
 
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 200);
     </script>
 </body>
 </html>
