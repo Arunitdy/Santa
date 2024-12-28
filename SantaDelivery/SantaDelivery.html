@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Santa's Toy Factory Pipeline</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #c41e3a;
+            margin-bottom: 30px;
+        }
+
+        .pipeline-stage {
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+            border-radius: 50%;
+        }
+
+        .stage-content {
+            flex-grow: 1;
+        }
+
+        .stage-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stage-description {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .pipeline-stage.active {
+            border-color: #c41e3a;
+            background-color: #fff5f5;
+        }
+
+        .pipeline-stage.complete {
+            border-color: #2ecc71;
+            background-color: #f0fff4;
+        }
+
+        .active .status-badge {
+            background-color: #ffebee;
+            color: #c41e3a;
+        }
+
+        .complete .status-badge {
+            background-color: #e8f5e9;
+            color: #2ecc71;
+        }
+
+        .waiting .status-badge {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #c41e3a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a01830;
+        }
+
+        .snow {
+            position: fixed;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎅 Santa's Toy Factory Pipeline</h1>
+        <div id="pipeline">
+            <!-- Stages will be inserted here by JavaScript -->
+        </div>
+        <button onclick="advancePipeline()">Advance Pipeline</button>
+    </div>
+
+    <script>
+        const stages = [
+            {
+                title: "Wish Letters Processing",
+                icon: "📨",
+                description: "Reading and sorting children's wishes"
+            },
+            {
+                title: "Toy Production",
+                icon: "🧸",
+                description: "Creating magical toys in Santa's workshop"
+            },
+            {
+                title: "Quality Control",
+                icon: "✔️",
+                description: "Ensuring every toy meets North Pole standards"
+            },
+            {
+                title: "Gift Wrapping",
+                icon: "🎁",
+                description: "Making presents look magical"
+            },
+            {
+                title: "Delivery Planning",
+                icon: "🛷",
+                description: "Optimizing Santa's route for Christmas Eve"
+            }
+        ];
+
+        let currentStage = 0;
+
+        function createPipelineHTML() {
+            const pipelineContainer = document.getElementById('pipeline');
+            pipelineContainer.innerHTML = stages.map((stage, index) => `
+                <div class="pipeline-stage ${index === currentStage ? 'active' : index < currentStage ? 'complete' : 'waiting'}">
+                    <div class="icon">${stage.icon}</div>
+                    <div class="stage-content">
+                        <div class="stage-title">${stage.title}</div>
+                        <div class="stage-description">${stage.description}</div>
+                    </div>
+                    <span class="status-badge">
+                        ${index === currentStage ? 'Active' : index < currentStage ? 'Complete' : 'Waiting'}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        function advancePipeline() {
+            currentStage = (currentStage + 1) % stages.length;
+            createPipelineHTML();
+        }
+
+        // Create snow effect
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snow');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        // Initialize pipeline
+        createPipelineHTML();
+
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 200);
+    </script>
+</body>
+</html>
