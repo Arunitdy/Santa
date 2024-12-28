@@ -45,10 +45,9 @@ async function handleSubmit(event) {
    
     inputField.value = "";
 
-    const apiKey = 'AIzaSyCZ-dsLDmfV8N0qaVMhNkrJhAOmTcy-cvE';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+    const apiKey = 'AIzaSyBf40hpO1zx4XFE8QGXNH_eXrfOD1tKzs0';
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-   
     const data = {
         contents: conversationHistory.map(message => ({
             parts: [{ text: message.text }]
