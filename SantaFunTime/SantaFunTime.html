@@ -68,27 +68,6 @@
             margin-top: 20px;
         }
 
-        #winner-message {
-            font-size: 24px;
-            margin-top: 10px;
-            color: #ffcc00;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background: #d42426;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: #b01e20;
-        }
-
         .score-board {
             display: flex;
             justify-content: space-between;
@@ -96,6 +75,57 @@
             margin-bottom: 20px;
             color: #ffcc00;
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .modal-content {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-button {
+            padding: 15px 30px;
+            background: #ffcc00;
+            color: #d42426;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-button:hover {
+            background: #d42426;
+            color: white;
+        }
+
+        .modal-button:focus {
+            outline: none;
+        }
+       #restart-btn{
+        color:white;
+        background-color: #d42426;
+        padding: 10px 5px;
+        border-radius: 5px;
+        border: 1px solid rgb(54, 4, 4);
+       }
     </style>
 </head>
 <body>
@@ -114,12 +144,18 @@
             <div id="player-turn">Player 1's Turn</div>
             <button id="restart-btn" onclick="restartGame()">Restart Game</button>
         </div>
-        
-        <div id="winner-message" class="winner-message"></div>
+    </div>
+
+    <div id="winner-modal" class="modal">
+        <div class="modal-content">
+            <div id="winner-message">Player 1 Wins! 🎉</div>
+            <button class="modal-button" onclick="restartGame()">Play Again</button>
+        </div>
     </div>
 
     <script>
         const gameBoard = document.getElementById('game-board');
+        const winnerModal = document.getElementById('winner-modal');
         const winnerMessage = document.getElementById('winner-message');
         const playerTurnDisplay = document.getElementById('player-turn');
         const player1ScoreDisplay = document.getElementById('player1-score');
@@ -187,10 +223,20 @@
                 gameOver = true;
                 winnerMessage.textContent = `Player ${player1Score === 3 ? 1 : 2} Wins! 🎉`;
                 playerTurnDisplay.textContent = '';
+                showWinnerModal();
             }
         }
 
+        function showWinnerModal() {
+            winnerModal.style.display = 'flex';
+        }
+
+        function hideWinnerModal() {
+            winnerModal.style.display = 'none';
+        }
+
         function restartGame() {
+            hideWinnerModal();
             initializeGame();
         }
 
@@ -201,8 +247,6 @@
             }
             return array;
         }
-
-        // Initialize the game on page load
         initializeGame();
     </script>
 </body>
