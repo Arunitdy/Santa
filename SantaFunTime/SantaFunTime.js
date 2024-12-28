@@ -60,7 +60,9 @@ function revealCard(event) {
 
     currentPlayer = currentPlayer === 1 ? 2 : 1;
     playerTurnDisplay.textContent = `Player ${currentPlayer}'s Turn`;
+    document.getElementById('player-turn-footer').innerHTML = `It's <span>Player ${currentPlayer}'s</span> Turn!`;
 }
+
 
 function checkWinner() {
     if (player1Score === 3 || player2Score === 3) {

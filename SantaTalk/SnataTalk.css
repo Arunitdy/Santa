@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+    background-color: #cd0404;
+}
+.chat-container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    border:2px solid rgb(163, 25, 25);
+}
+.chat-history {
+    padding: 20px;
+    height: 400px;
+    overflow-y: auto;
+    border-bottom: 1px solid #e0e0e0;
+}
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+.user-message {
+    background-color: #e7f3fe;
+    text-align: right;
+}
+.bot-message {
+    background-color: #f77f7f;
+    text-align: left;
+}
+.input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+.inputdata {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.submit {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #cd0404;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.submit:hover {
+    background-color: white;
+    color: #cd0404;
+    border: 1px solid #cd0404;
+}
+.spinner {
+    display: none;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #555;
+    border-radius: 50%;
+    margin-left: 8px;
+    animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.chat-history1{
+    height: 70px;
+    background-color: rgb(255, 0, 0);
+    padding:10px;
+    display: flex;
+}
+.chat-history1 h2{
+    color: #ffffff;
+    margin: 20px;
+}
+.SantaProfile {
+    width: 50px;
+    height: 50px;
+    background-image: url('../png/santa.png');
+    background-size: cover;
+    border-radius: 15px; 
+    border: 5px solid rgb(176, 8, 8);
+    margin: 0px;
+    padding: 4px;
+    background-color: white;
+}
+
+
+.home-link .home-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-link .home-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

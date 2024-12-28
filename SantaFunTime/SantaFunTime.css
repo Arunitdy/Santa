@@ -31,7 +31,7 @@ body {
 .game-container h1{
     font-size: 36px;
     color: #cd0404;
-    margin-bottom: 10px;
+    margin: 0px 0px 10px 0px;
     text-shadow: 3px 3px 5px rgb(147, 143, 143);
 }
 
@@ -145,4 +145,27 @@ body {
     to {
         transform: translateY(100vh);
     }
+}
+
+#player-turn{
+    color: #af0003;
+}
+
+.home-link .home-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-link .home-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }

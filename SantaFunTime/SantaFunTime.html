@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="SantaFunTime.css">
 </head>
 <body>
+    <a href="../index.html" class="home-link">
+        <button class="home-button">Home</button>
+   </a>
     <div class="game-container">
         <h1>🎅 Santa Surprise Game ⛄</h1>
         <p>Find three Santa cards to win!</p>
@@ -24,8 +27,11 @@
         <div class="info-panel">
             <div id="player-turn">Player 1's Turn</div>
         </div>
+        <div id="player-turn-footer" class="player-turn-footer">
+            It's <span id="player-turn"></span> Turn!
+        </div>
     </div>
-
+   
     <div id="winner-modal" class="modal">
         <div class="modal-content">
             <div id="winner-message">Player 1 Wins! 🎉</div>
