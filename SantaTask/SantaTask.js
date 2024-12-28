@@ -1,4 +1,8 @@
-let tasks = [];
+let tasks = [
+    { id: Date.now() + 1, text: 'Room Decoration', completed: false },
+    { id: Date.now() + 2, text: 'Bake a Cake', completed: true },
+    { id: Date.now() + 3, text: 'Buy Gifts', completed: false }
+];
 let currentFilter = 'all';
 
 function addTask() {
@@ -60,7 +64,7 @@ function updateTaskList() {
                     ${task.completed ? '✓' : ''}
                 </div>
                 <div class="task-text">${task.text}</div>
-                <button class="delete-btn" onclick="deleteTask(${task.id})">❌</button>
+                <button class="delete-btn" onclick="deleteTask(${task.id})"> ✖</button>
             </div>
         `).join('');
     }
