@@ -152,9 +152,8 @@ body {
 }
 
 .home-link .home-button {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
