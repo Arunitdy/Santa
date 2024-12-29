@@ -26,6 +26,9 @@ This application not only gives emotional support to those separated from their 
 Project Overview
 Santa's Workshop is an interactive web application designed to spread holiday cheer and assist users in their Christmas preparations. The website features a collection of fun and heartwarming tools including a chatbot, task manager, surprise game, and delivery tracker. Whether you're feeling lonely during the holidays or need help organizing your Christmas tasks, this project has something to bring a smile to your face.
 
+
+<img src="./GUI/Home.png">
+
 Features
 1. 🤖 AI Santa Chatbot
 This feature provides a warm, friendly AI-powered Santa to chat with, offering company to users who may be feeling lonely or isolated during the Christmas season. The chatbot is available to anyone who needs a little extra holiday cheer.
@@ -34,6 +37,9 @@ How to Use:
 Talk to Santa: Start a conversation with a simple greeting like "Hi, Santa!" or anything else that feels festive.
 Share Your Feelings: Santa is always ready to listen, offering a kind ear to brighten your day.
 Get Holiday Tips: Receive tips, heartwarming Christmas stories, and festive advice to help you feel the magic of the season.
+
+<img src="./GUI/Chat With Santa.png" alt="chat gui">
+
 2. 📝 Secret Santa Task Manager
 This tool allows users to easily organize their Christmas preparations. From planning to execution, the Secret Santa Task Manager helps users keep track of important holiday tasks and ensures nothing is missed.
 
@@ -42,6 +48,7 @@ Add Tasks: Easily add tasks to your Christmas to-do list.
 Track Progress: Mark tasks as complete with a simple click of a button.
 Organize: Filter tasks based on their status (active, completed, all).
 Remove Tasks: Delete unnecessary tasks when they’re no longer needed.
+<img src="./GUI/Task Manager.png" alt="">
 3. 🎮 Santa Surprise Game
 An exciting two-player game where participants compete to uncover Santa cards hidden among snowman cards. It's a fun way to bring friends and family together in a friendly, festive competition.
 
@@ -51,6 +58,9 @@ Gameplay: Players take turns flipping cards to reveal either a Santa 🎅 or Sno
 Scoring: One point is awarded for each Santa card found.
 Victory: The first player to score three points wins the game.
 Replay: The game can be restarted at any time by clicking the restart button.
+
+<img src="./GUI/Screenshot 2024-12-29 114847.png" alt="game gui">
+
 4. 🚚 Delivery Tracker
 The Delivery Tracker helps users manage and monitor Christmas gift deliveries, providing an easy and efficient way to keep track of the status of all deliveries.
 
@@ -60,6 +70,9 @@ Tracking Status: Deliveries can be tracked as "Pending" (Yellow) or "Delivered" 
 Updating Status: Delivery statuses can be toggled between "Pending" and "Delivered" by clicking on the status badge.
 Searching Deliveries: A search bar is available to quickly find deliveries by recipient name, gift, or location.
 Persistent Data: All entered delivery information is saved and accessible even after refreshing the page, ensuring no data is lost.
+
+
+<img src="./GUI/Delivery.png" alt="delivery page gui">
 Conclusion
 Santa’s Workshop is a comprehensive web application built to help users embrace the holiday spirit. From chatting with Santa to organizing tasks and tracking gift deliveries, this project offers a range of features to spread Christmas joy. Whether you're looking for a festive companion, trying to stay organized during the busy season, or playing a fun game with friends, Santa’s Workshop brings all of this together in one magical place.
 
