@@ -59,7 +59,7 @@ Scoring: One point is awarded for each Santa card found.
 Victory: The first player to score three points wins the game.
 Replay: The game can be restarted at any time by clicking the restart button.
 
-<img src="./GUI/Screenshot 2024-12-29 114847.png" alt="game gui">
+<img src="./GUI/Game.png" alt="game gui">
 
 4. 🚚 Delivery Tracker
 The Delivery Tracker helps users manage and monitor Christmas gift deliveries, providing an easy and efficient way to keep track of the status of all deliveries.
