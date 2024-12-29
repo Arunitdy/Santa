@@ -1,9 +1,13 @@
-let tasks = [
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [
     { id: Date.now() + 1, text: 'Room Decoration', completed: false },
     { id: Date.now() + 2, text: 'Bake a Cake', completed: true },
     { id: Date.now() + 3, text: 'Buy Gifts', completed: false }
 ];
 let currentFilter = 'all';
+
+function saveTasksToLocalStorage() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
 function addTask() {
     const input = document.getElementById('taskInput');
@@ -16,6 +20,7 @@ function addTask() {
             completed: false
         });
         input.value = '';
+        saveTasksToLocalStorage();
         updateTaskList();
         createSnowflake();
     }
@@ -25,11 +30,13 @@ function toggleTask(id) {
     tasks = tasks.map(task => 
         task.id === id ? {...task, completed: !task.completed} : task
     );
+    saveTasksToLocalStorage();
     updateTaskList();
 }
 
 function deleteTask(id) {
     tasks = tasks.filter(task => task.id !== id);
+    saveTasksToLocalStorage();
     updateTaskList();
 }
 
@@ -92,13 +99,12 @@ function createSnowflake() {
     }, 5000);
 }
 
-
 setInterval(createSnowflake, 300);
+
 document.getElementById('taskInput').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         addTask();
     }
 });
-
 
 updateTaskList();
