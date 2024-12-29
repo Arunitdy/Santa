@@ -152,9 +152,8 @@ body {
 }
 
 .home-link .home-button {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -168,4 +167,43 @@ body {
 .home-link .home-button:hover {
     background-color: #45a049;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 600px) {
+    .game-container {
+        padding: 10px;
+    }
+
+    .game-container h1 {
+        font-size: 28px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+        width: 60px;
+        height: 90px;
+        font-size: 60px;
+    }
+
+    .score-board {
+        font-size: 14px;
+    }
+
+    #restart-btn {
+        padding: 8px 4px;
+    }
+
+    .modal-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .home-link .home-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
 }
