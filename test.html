@@ -137,7 +137,6 @@
     <div class="container">
         <h1>🎅 Santa's Toy Factory Pipeline</h1>
         <div id="pipeline">
-            <!-- Stages will be inserted here by JavaScript -->
         </div>
         <button onclick="advancePipeline()">Advance Pipeline</button>
     </div>
@@ -193,8 +192,6 @@
             currentStage = (currentStage + 1) % stages.length;
             createPipelineHTML();
         }
-
-        // Create snow effect
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snow');
@@ -207,11 +204,11 @@
             }, 5000);
         }
 
-        // Initialize pipeline
         createPipelineHTML();
 
-        // Create snowflakes periodically
         setInterval(createSnowflake, 200);
     </script>
 </body>
 </html>
+
+
