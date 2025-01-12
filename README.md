@@ -1,6 +1,6 @@
 
 
-<img src="./GUI/result.jpg">
+<img src="./GUI/result.jpg" width="500px">
 
 
 Hey everyone!  After an exciting contest of Santa's Code Retreat conducted by ACM TKMCE, we're thrilled to announce the winning team:
