@@ -1,3 +1,16 @@
+
+
+<img src="./GUI/result.jpg">
+
+
+Hey everyone!  After an exciting contest of Santa's Code Retreat conducted by ACM TKMCE, we're thrilled to announce the winning team:
+
+Razin Moyi A N K (First Year ER Batch A)
+Arun M (Third Year CS Batch B)
+
+Kudos to all the participants for their active participation and enthusiasm! We can't wait to see y'all for the next event!✨
+
+
 # Santa
 <h1>Santa's Workshop Project Documentation</h1>
 link to website:<a href="https://santa-teal.vercel.app/">click Me</a>
